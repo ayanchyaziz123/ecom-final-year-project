@@ -11,9 +11,7 @@
     --eff: .3s all ease;
 }
 
-* {
-    font-family: var(--font-para);
-}
+
 
 
 body {
@@ -23,4 +21,13 @@ body {
 
 .bg-dark{
    background-color: #000000 !important;
+}
+.main{
+    min-height: 80vh;
+}
+h3{
+    padding: 1rem 0;
+}
+.rating span{
+    margin: 0.1rem;
 }

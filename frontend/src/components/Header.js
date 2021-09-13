@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
 
 function Header()
 {
@@ -8,7 +14,7 @@ function Header()
                
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
                     <div className="container">
-                    <a class="navbar-brand" href="#">ProShop</a>
+                        < Link class="navbar-brand" to='/'>ProShop</Link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -16,7 +22,7 @@ function Header()
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Log In <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Link</a>
