@@ -31,3 +31,45 @@ h3{
 .rating span{
     margin: 0.1rem;
 }
+
+.form-control {
+    border-color:#FF9900;
+    box-shadow: #FF9900;
+} 
+
+.form-control:focus {
+    border-color:#FF9900;
+    box-shadow: #FF9900;
+} 
+.input-edit{
+    font-size: 13px !important;
+}
+.btn-outline-warning
+{
+    background-color: #FF9900 !important;
+    color: #fff !important;
+}
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .btn{
+    font-size: 13px !important;
+}
+
+.cl{
+    background-color: #FF9900 !important;
+    color: #fff;
+}
+
+.form-control:focus, .form-control:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+.serach-btn{
+    border-radius: 0px 50px 50px 0px !important;
+}
+.form-bor{
+    border-radius: 0px 0px 0px 0px !important;
+}

@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer>
 
-            <div className="container">
+            <div className="container mt-5">
                    <div className = "row ">
                     <div className= "col text-center">
                         <p>Copyright &copy; ProShop</p>
