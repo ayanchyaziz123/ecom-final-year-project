@@ -1,54 +1,77 @@
-import React from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-} from "react-router-dom";
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import SearchBox from './SearchBox'
+import { logout } from '../actions/userActions'
 
-function Header()
-{
-    return(
-        <div>
-            <header> 
+function Header() {
 
-                <nav class="navbar navbar-light bg-light justify-content-between">
-                    <div className="container">
-                        < Link class="navbar-brand" to='/'><i class="fa fa-leaf cl p-2 rounded" aria-hidden="true"></i></Link>
-                    <form class="form-inline">
-                            <input class="form-control input-edit form-bor" type="search" placeholder="Search" aria-label="Search"/>
-                            <button class="btn btn-outline-warning my-2 my-sm-0 serach-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
-                    </div>
-                </nav>
-               
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
-                    <div className="container">
-                        < Link class="navbar-brand" to='/'><i class="fa fa-home" aria-hidden="true"></i> ProShop</Link>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Log In</a>
-                            </li>
-                            <li class="nav-item active">
-                                    <a class="nav-link" href="#"><i class="fas fa-money-bill"></i> Predict A Price</a>
-                            </li>
-                        </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                                <a class=" my-2 my-sm-0 text-white" ><i class="fa fa-shopping-cart" href="#"></i> Cart <span class="badge badge-secondary"> 5</span></a>
-                        </form>
-                    </div>
-                </div>
-                </nav>
-                
+    const dispatch = useDispatch()
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
+
+    return (
+        <header>
+            <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+                <Container>
+                    <LinkContainer to='/'>
+                        <Navbar.Brand>Ayan&Nakib Store</Navbar.Brand>
+                    </LinkContainer>
+
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <SearchBox />
+                        <Nav className="ml-auto">
+
+                            <LinkContainer to='/cart'>
+                                <Nav.Link ><i className="fas fa-shopping-cart"></i>Cart</Nav.Link>
+                            </LinkContainer>
+                            {userInfo ? (
+                                <NavDropdown title={userInfo.name} id='username'>
+                                    <LinkContainer to='/profile'>
+                                        <NavDropdown.Item>Profile</NavDropdown.Item>
+                                    </LinkContainer>
+
+                                    <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+
+                                </NavDropdown>
+                            ) : (
+                                    <LinkContainer to='/login'>
+                                        <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
+                                    </LinkContainer>
+                                )}
 
 
-            </header>
-        </div>
+                            {userInfo && userInfo.isAdmin && (
+                                <NavDropdown title='Admin' id='adminmenue'>
+                                    <LinkContainer to='/admin/userlist'>
+                                        <NavDropdown.Item>Users</NavDropdown.Item>
+                                    </LinkContainer>
+
+                                    <LinkContainer to='/admin/productlist'>
+                                        <NavDropdown.Item>Products</NavDropdown.Item>
+                                    </LinkContainer>
+
+                                    <LinkContainer to='/admin/orderlist'>
+                                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                                    </LinkContainer>
+
+                                </NavDropdown>
+                            )}
+
+
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </header>
     )
 }
- export default Header;
+
+export default Header

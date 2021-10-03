@@ -1,75 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=David+Libre&family=Josefin+Sans&display=swap');
-
-:root {
-    --bg-size: 100% 100%;
-    --main_color: #fff;
-    --title: 'Josefin Sans', sans-serif;
-    --font-para: 'David Libre', serif;
-    --btn-color: #bbe1fa;
-    --btn-font-color: #000;
-    --btn-font: 1.5rem;
-    --eff: .3s all ease;
-}
-
-
-
-
-body {
-    background: hsl(84, 3%, 94%) !important;
-}
-
-
-.bg-dark{
-   background-color: #000000 !important;
-}
-.main{
+main{
     min-height: 80vh;
 }
+
+h1{
+  font-size: 1.8rem;
+  padding:1rem 0;
+}
+
+h2{
+  font-size: 1.4rem;
+  padding:0.5rem 0;
+}
+
 h3{
-    padding: 1rem 0;
+    padding:1rem 0;
 }
+
 .rating span{
-    margin: 0.1rem;
+  margin:0.1rem;
 }
 
-.form-control {
-    border-color:#FF9900;
-    box-shadow: #FF9900;
-} 
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
 
-.form-control:focus {
-    border-color:#FF9900;
-    box-shadow: #FF9900;
-} 
-.input-edit{
-    font-size: 13px !important;
+.carousel-caption h4 {
+  color: #fff;
 }
-.btn-outline-warning
-{
-    background-color: #FF9900 !important;
-    color: #fff !important;
+
+.carousel img {
+  display:block;
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
-.btn:focus, .btn:active {
-    outline: none !important;
-    box-shadow: none !important;
+.carousel a {
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
   }
-  .btn{
-    font-size: 13px !important;
 }
 
-.cl{
-    background-color: #FF9900 !important;
-    color: #fff;
-}
-
-.form-control:focus, .form-control:active {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-.serach-btn{
-    border-radius: 0px 50px 50px 0px !important;
-}
-.form-bor{
-    border-radius: 0px 0px 0px 0px !important;
-}
