@@ -26,7 +26,7 @@ function SearchBox() {
 
             <Button
                 type='submit'
-                variant='outline-warning'
+                variant='warning'
                 className='p-2'
             >
                 <i class="fas fa-search"></i>

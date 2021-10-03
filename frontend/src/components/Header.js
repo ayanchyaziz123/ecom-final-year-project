@@ -29,9 +29,11 @@ function Header() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <SearchBox />
                         <Nav className="ml-auto">
-
                             <LinkContainer to='/cart'>
                                 <Nav.Link ><i className="fas fa-shopping-cart"></i>Cart</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to='/pricePredict'>
+                                <Nav.Link >Predict Price</Nav.Link>
                             </LinkContainer>
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id='username'>
