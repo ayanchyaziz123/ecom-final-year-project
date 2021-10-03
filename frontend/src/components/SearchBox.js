@@ -29,7 +29,7 @@ function SearchBox() {
                 variant='outline-secondary'
                 className='p-2'
             >
-                Search
+                <i class="fas fa-search"></i>
             </Button>
         </Form>
     )
