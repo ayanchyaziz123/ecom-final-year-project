@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from '../../components/Product';
+
 function HomeScreen()
 {
     const [products, setProducts] = useState([])
