@@ -1,47 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function PricePredict(){
-    return(
-        <div>
-            <h3>Predict A mobile Price</h3>
-            <div class="form-group">
-                <label for="sel1">Brand Name:</label>
-                <select class="form-control" id="sel1">
-                    <option>Iphone</option>
-                    <option>Samsung</option>
-                    <option>Oppo</option>
+
+    const [inputs, setInputs] = useState({});
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({ ...values, [name]: value }))
+    }
+
+    const handleSubmit = (event) => {
+        if (event.name == "Samsung")
+        {
+            console.log("samsung");
+        }
+        event.preventDefault();
+        console.log(inputs);
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>Brand Name:
+                <select name="brand_name" onChange={handleChange} class="form-control">
+                    <option value="Samsung">Samsung</option>
+                    <option value="IPhone">Iphone</option>
+                    <option value="Oppo">Oppo</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="sel1">RAM:</label>
-                <select class="form-control" id="sel1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+            </label>
+            <br></br>
+            <label>Brand Name:
+                <select name="ram" onChange={handleChange} class="form-control">
+                    <option value="2">2 GB</option>
+                    <option value="4">4 GB</option>
+                    <option value="6">6 GB</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="sel1">ROM:</label>
-                <select class="form-control" id="sel1">
-                    <option>32</option>
-                    <option>64</option>
-                    <option>128</option>
-                    <option>256</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sel1">Cammera:</label>
-                <select class="form-control" id="sel1">
-                    <option>20px</option>
-                    <option>30px</option>
-                    <option>40px</option>
-                    <option>50px</option>
-                </select>
-            </div>
-            <button class="btn btn-dark">Predict</button>
-        </div>
+            </label>
+            <br></br>
+            <input className="btn btn-secondary" type="submit" />
+        </form>
     )
 }
-
 export default PricePredict;
